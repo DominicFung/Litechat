@@ -1,14 +1,15 @@
 {
   "name": "@domfung/litechat",
-  "version": "0.0.0-development",
+  "version": "0.0.1-development",
   "description": "",
   "license": "MIT",
   "private": false,
   "scripts": {
-    "dev": "react-app-rewired start",
     "clean": "rm -rf dist",
-    "build": "npm run clean && mkdir dist && tsc && cp package.json README.md ./dist",
-    "publish:npm": "npm publish ./dist --access public"
+    "tailwind": "npx tailwindcss -i ./src/index.css -o ./dist/index.css",
+    "pack": "npm pack | grep -E '^.*$' | tail -n 1 > test/latest.txt",
+    "build": "npm run clean && mkdir dist && npm run tailwind && tsc -p ./configs/tsconfig.base.json && cp package.json README.md ./dist && npm run pack",
+    "publish": "npm publish ./dist --access public"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,9 @@
   },
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "files": ["dist/**/*"],
+  "files": [
+    "dist/**/*"
+  ],
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -35,10 +38,15 @@
       "last 1 safari version"
     ]
   },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
     "@types/react": "^18.0.27",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "tailwindcss": "^3.2.4",
     "typescript": "^4.9.4"
   },
   "dependencies": {

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@domfung/litechat": "file:..",
+    "@domfung/litechat": "file:../domfung-litechat-0.0.0-development.tgz",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -13,11 +13,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm run uninstall && npm run install && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "install:litechat": "npm install --save ../ && rm -rf node_modules/@domfung/litechat/node_modules"
+    "uninstall": "npm uninstall @domfung/litechat",
+    "install": "npm install \"../$(head -n 1 latest.txt)\""
   },
   "eslintConfig": {
     "extends": [
