@@ -1,6 +1,6 @@
 {
   "name": "@domfung/litechat",
-  "version": "0.0.1-development",
+  "version": "0.0.2-development",
   "description": "",
   "license": "MIT",
   "private": false,
@@ -15,8 +15,8 @@
     "type": "git",
     "url": "git+ssh://git@github.com/DominicFung/Litechat.git"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "index.js",
+  "module": "index.js",
   "files": [
     "dist/**/*"
   ],
